@@ -1,0 +1,31 @@
+<%- include('./partials/head') %>
+    <%- include('./partials/navigation') %>
+
+        <%# const myTitle="Das ist mein Titel" %>
+            <h1>
+                <%# myTitle %>
+                    <%# das=ist wichtig, damit etwas in das HTML geschrieben wird! %>
+                        <%=title %>
+            </h1>
+            <h2>
+                <%= msg %>
+            </h2>
+            <%# Jedes JS element, muss von % % umgeben sein! %>
+                <% if (isLoggedin) { %>
+                    <p>User: <%= userName %> is logged in</p>
+                    <% } else {%>
+                        <p>Want to login?</p>
+                        <% } %>
+                            <div>
+                                <% data.forEach(hero=> { %>
+                                    <p>
+                                        <%= hero.name %>
+                                            ist
+                                            <%= hero.age %>
+                                                Jahre alt!
+                                    </p>
+                                    <% }) %>
+                            </div>
+
+
+                            <%- include('./partials/footer') %>
