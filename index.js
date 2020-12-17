@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     // nur den Dateinamen! Den Ordner und die Dateiendung weiß er durch das app.set('view engine', 'ejs') 
     // view engine => Ordner views
     // ejs => Dateiendung ejs
-    res.render('index', { title: "My super Homepage!", msg: "Willkommen auf meiner HP!", isLoggedin: true, userName: "Batman", data: myData })
+    res.render('index', { title: "My super Homepage!", msg: "Willkommen auf meiner HP!", isLoggedin: true, userName: "Batman", myData })
 })
 app.get('/about', (req, res) => {
     res.render('about', { title: "About us" })
@@ -31,6 +31,16 @@ app.get('/contact', (req, res) => {
 app.get('/faq', (req, res) => {
     res.render('faq', { title: "Our FAQ Section" })
 })
+app.get('/users/:id', (req, res) => {
+    // console.log(req);
+    // console.log(req.params);
+    // das ID bezieht sich auf das :id in dem get 
+    // das :id kann frei gewählt werden, es ändert sich dadurch nur der key hinter params
+    console.log(req.params.id);
+    // res.end()
+    res.render('users', { userID: req.params.id, title: "User Page" })
+})
+
 
 
 
